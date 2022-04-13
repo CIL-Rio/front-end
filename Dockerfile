@@ -1,4 +1,6 @@
 FROM node:10-alpine
+HEALTHCHECK --interval=30s --timeout=3s \
+    CMD curl -f http://localhost:8079 || exit 1
 ENV NODE_ENV "production"
 ENV PORT 8079
 EXPOSE 8079
