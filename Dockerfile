@@ -13,7 +13,11 @@ RUN chown myuser /usr/src/app/yarn.lock
 USER myuser
 RUN yarn install
 
-COPY . /usr/src/app
+COPY  helpers /usr/src/app
+COPY  public /usr/src/app
+COPY scripts /usr/src/app
+COPY config.js /usr/src/app
+COPY server.js /usr/src/app
 
 # Start the app
 CMD ["/usr/local/bin/npm", "start"]
